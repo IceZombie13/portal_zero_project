@@ -1,9 +1,11 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/terrain/TileMap.png" type="Texture" id=2]
 [ext_resource path="res://scenes/NPCMaster.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Dialog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://images/enemy/dead_body/dead_blue_guy.png" type="Texture" id=5]
+[ext_resource path="res://scenes/Tutorial.gd" type="Script" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -633,6 +635,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 28/shapes = [  ]
 28/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 197, 194.5 )
+
 [node name="Level_01" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
@@ -655,3 +660,19 @@ color = Color( 0.466667, 0.431373, 0.431373, 1 )
 position = Vector2( 1152, 384 )
 
 [node name="Dialog" parent="NPCMaster" instance=ExtResource( 4 )]
+
+[node name="Tutorial" type="Area2D" parent="."]
+position = Vector2( 2304, 384 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial"]
+position = Vector2( -512, -128 )
+shape = SubResource( 25 )
+
+[node name="Sprite" type="Sprite" parent="Tutorial"]
+position = Vector2( -512, 23 )
+scale = Vector2( 1.1578, 1.20122 )
+texture = ExtResource( 5 )
+
+[node name="Dialog" parent="Tutorial" instance=ExtResource( 4 )]
+dialogue_file = "res://dialogs/jsons/Tutorial.json"

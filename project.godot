@@ -8,11 +8,25 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "Dialog",
+"language": "GDScript",
+"path": "res://dialogs/Dialog.gd"
+} ]
+_global_script_class_icons={
+"Dialog": ""
+}
+
 [application]
 
 config/name="Portal Zero"
-run/main_scene="res://scenes/Levels.tscn"
+run/main_scene="res://scenes/Menu.tscn"
 config/icon="res://images/icon.png"
+
+[autoload]
+
+DialogBox="*res://scenes/DialogBox.tscn"
 
 [input]
 

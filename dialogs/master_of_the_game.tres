@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://dialogs/Dialog.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+msg_queue = [ "Seja muito bem vindo ao seu novo mundo! Hahahahaha..", "Tudo que você precisa saber está diante de seus olhos! Hahahahahahaha.", "Boa sorte na sua jornada. Hehe" ]

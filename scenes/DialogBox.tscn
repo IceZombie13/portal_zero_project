@@ -12,6 +12,7 @@ size = 72
 font_data = ExtResource( 3 )
 
 [node name="DialogBox" type="NinePatchRect"]
+visible = false
 margin_left = 128.0
 margin_top = 384.0
 margin_right = 903.0

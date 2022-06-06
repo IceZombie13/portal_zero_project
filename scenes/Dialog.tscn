@@ -14,8 +14,10 @@ font_data = ExtResource( 2 )
 
 [node name="Dialog" type="CanvasLayer"]
 script = ExtResource( 3 )
+dialogue_file = "res://dialogs/jsons/npc1.json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
 margin_left = 128.0
 margin_top = 51.0
 margin_right = 896.0
@@ -41,3 +43,9 @@ margin_right = 751.0
 margin_bottom = 152.0
 custom_fonts/normal_font = SubResource( 2 )
 text = "Message"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

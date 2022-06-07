@@ -17,7 +17,6 @@ script = ExtResource( 3 )
 dialogue_file = "res://dialogs/jsons/npc1.json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-visible = false
 margin_left = 128.0
 margin_top = 51.0
 margin_right = 896.0

@@ -1,8 +1,11 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/terrain/TileMap.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Letal_Spot.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Enemy/Enemy1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Level_01.gd" type="Script" id=6]
 [ext_resource path="res://scripts/PortalManager.gd" type="Script" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
@@ -633,7 +636,11 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 28/shapes = [  ]
 28/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 50.5, 46 )
+
 [node name="Level_01" type="Node2D"]
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_vertical_guides_": [ 25.0 ]
 }
@@ -665,4 +672,27 @@ script = ExtResource( 7 )
 visible = false
 polygon = PoolVector2Array( -1, 4, 2, 592, 606, 588, 604, 268, 1328, 268, 1326, -732, -1, -736, 3, -390, 256, -392, 259, -294, 575, -292, 578, -228, 1018, -228, 1026, 4 )
 
+[node name="Enemy_01" parent="." instance=ExtResource( 5 )]
+position = Vector2( 447, 572 )
+
+[node name="Enemy_Area" type="Area2D" parent="Enemy_01"]
+collision_layer = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_01/Enemy_Area"]
+position = Vector2( 0.5, -36 )
+shape = SubResource( 25 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+autostart = true
+
 [connection signal="input_event" from="PortalZone" to="PortalZone" method="_on_Area2D_input_event"]
+[connection signal="area_entered" from="Enemy_01/Enemy_Area" to="Enemy_01/Enemy_Area" method="_on_Area2D_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

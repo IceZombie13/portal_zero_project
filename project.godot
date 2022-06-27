@@ -27,6 +27,7 @@ config/icon="res://images/icon.png"
 [autoload]
 
 DialogBox="*res://scenes/DialogBox.tscn"
+PlayerHealth="*res://scenes/Player_Health.gd"
 
 [input]
 

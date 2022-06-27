@@ -5,6 +5,7 @@ var move_speed = 1280
 var gravity = 1300
 var jump_force = -520
 var is_grounded
+var health = 4
 onready var raycasts = $raycasts
 
 func _physics_process(delta: float) -> void:
@@ -17,6 +18,10 @@ func _physics_process(delta: float) -> void:
 	is_grounded = _check_is_grounded()
 	
 	_set_animation()
+	
+	set_health()
+	
+	death()
 	
 func _get_input():
 	velocity.x = 0
@@ -44,7 +49,29 @@ func _set_animation():
 		anim = "jump"
 	elif velocity.x != 0:
 		anim = "run"
+
+func set_health(): 
+	if health == 3:
+		$HUD/Player_Health/one.visible = false
+		$HUD/Player_Health/two.visible = false
+		$HUD/Player_Health/full.visible = true
+	if health == 2:
+		$HUD/Player_Health/one.visible = false
+		$HUD/Player_Health/two.visible = true
+		$HUD/Player_Health/full.visible = false
+	if health == 1:
+		$HUD/Player_Health/one.visible = true
+		$HUD/Player_Health/two.visible = false
+		$HUD/Player_Health/full.visible = false
 		
+func hit():
+	health -= 1
+	
+func death():
+	if health <= 0:
+		get_tree().change_scene("res://scenes/Menu.tscn")
+
+
 func set_active(active):
 	set_physics_process(active)
 	set_process(active)

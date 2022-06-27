@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pzero.png-86e3dd26249912da8b3b21f3a1c3b7d7.stex"
+path="res://.import/SAIR.png-39b5525df9963a21057e7f7029bac205.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/menu/pzero.png"
-dest_files=[ "res://.import/pzero.png-86e3dd26249912da8b3b21f3a1c3b7d7.stex" ]
+source_file="res://images/menu/SAIR.png"
+dest_files=[ "res://.import/SAIR.png-39b5525df9963a21057e7f7029bac205.stex" ]
 
 [params]
 

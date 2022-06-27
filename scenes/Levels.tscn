@@ -673,7 +673,7 @@ visible = false
 polygon = PoolVector2Array( -1, 4, 2, 592, 606, 588, 604, 268, 1328, 268, 1326, -732, -1, -736, 3, -390, 256, -392, 259, -294, 575, -292, 578, -228, 1018, -228, 1026, 4 )
 
 [node name="Enemy_01" parent="." instance=ExtResource( 5 )]
-position = Vector2( 447, 572 )
+position = Vector2( 731, -223 )
 
 [node name="Enemy_Area" type="Area2D" parent="Enemy_01"]
 collision_layer = 2

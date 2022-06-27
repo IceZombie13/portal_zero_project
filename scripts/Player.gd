@@ -69,6 +69,8 @@ func hit():
 	
 func death():
 	if health <= 0:
+		get_tree().get_root().get_node("Portal").free()
+		get_tree().get_root().get_node("OtherPortal").free()
 		get_tree().change_scene("res://scenes/Menu.tscn")
 
 
